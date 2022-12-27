@@ -26,6 +26,7 @@ async function getSubdomains(){
     await page.click("#privatequery")
     await page.click("#scan_subdomains")
     await page.waitForSelector("body > div > div.col-md-12 > div:nth-of-type(1) > center > div.row > div > a", { timeout: 0 })
+
     const subdomains = await page.$$eval("#result_table > tbody > tr > td:nth-of-type(2) > a", elems =>{
         return elems.map(elem => elem.textContent)
     })
@@ -33,7 +34,7 @@ async function getSubdomains(){
     subenujs.subdomains = subdomains
     
     console.log(`[${chalk.blueBright("INFO")}] Subdomains scanning finished..`)
-    browser.close()
+    await browser.close()
     enumerate()
 }
 
