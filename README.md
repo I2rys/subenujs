@@ -1,4 +1,4 @@
-# SubEnuJS</h1
+# SubEnuJS
 Website Subdomains enumeration writen in NodeJS.
 
 ## Installation
